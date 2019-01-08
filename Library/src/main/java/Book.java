@@ -9,5 +9,13 @@ public class Book {
         this.genre = genre;
     }
 
+    public String showName(){
+        return name;
+    }
+
+    public String showGenre(){
+        return genre;
+    }
+
 
 }

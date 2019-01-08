@@ -12,10 +12,10 @@ public class LibraryTest {
 
     @Before
     public void before(){
-        library = new Library(2);
+        library = new Library(3);
         book1 = new Book("Harry Potter", "JK Rowling", "Fantasy");
         book2 = new Book("Lord of the Rings", "JRR Tolkien", "Fantasy");
-        book3 = new Book("HarryPotter2", "JK Rowling", "Fantasy");
+        book3 = new Book("HarryPotter2", "JK Rowling", "Horror");
     }
 
     @Test
@@ -50,5 +50,22 @@ public class LibraryTest {
         assertEquals(2, library.stockCount());
         library.checkout(book1);
         assertEquals(1, library.stockCount());
+    }
+//
+//    @Test
+//    public void storesBooksOfGenre(){
+//        library.addBook(book1);
+//        library.addBook(book2);
+//        library.addBook(book3);
+//        assertEquals(2, library.showBooksOfGenre("Fantasy"));
+//    }
+
+    @Test
+    public void canShowAllGenres(){
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        assertEquals("{Horror=1, Fantasy=1}", library.getGenres());
     }
 }
